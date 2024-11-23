@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio | Biblioteca</title>
+    <!-- Incluir Bootstrap para estilos -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Incluir Font Awesome para íconos -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            height: 70vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            padding-top: 130px;
+        }
+        .card {
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+        }
+        h1 {
+            color: #343a40;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .btn-primary {
+            background: linear-gradient(90deg, #6a11cb, #2575fc);
+            border: none;
+        }
+        .btn-primary:hover {
+            background: linear-gradient(90deg, #2575fc, #6a11cb);
+        }
+        .register-link {
+            color: #6a11cb;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .register-link:hover {
+            text-decoration: underline;
+        }
+        label {
+            font-weight: bold;
+        }
+        /* Estilo para la flecha de regresar */
+        .back-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background-color: #ffffff;
+            border-radius: 50%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-decoration: none;
+            color: #343a40;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        .back-button:hover {
+            background-color: #6a11cb;
+            color: #ffffff;
+            transform: scale(1.1);
+            box-shadow: 0 6px 12px rgba(37, 117, 252, 0.3);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Flecha de Regresar usando Font Awesome -->
+    <a href="javascript:history.back()" class="back-button">
+        <i class="fas fa-arrow-left"></i> <!-- Aquí está el ícono de la flecha -->
+    </a>
+
+    <!-- Contenido principal -->
+    <div class="container">
+        <div class="card">
+            <h1>Bienvenido a la Biblioteca</h1>
+            <!-- Formulario de Inicio de Sesión -->
+            <form action="login.php" method="POST">
+                <div class="mb-3">
+                    <label for="email" class="form-label">Correo Electrónico</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Ingrese su correo" required>
+                </div>
+                <div class="mb-3">
+                    <label for="contrasena" class="form-label">Contraseña</label>
+                    <input type="password" class="form-control" id="contrasena" name="contrasena" placeholder="Ingrese su contraseña" required>
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary w-100 mb-3">Iniciar Sesión</button>
+                    <a href="registro.html" class="register-link">¿No tienes una cuenta? Regístrate</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Incluir el archivo JavaScript de Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
