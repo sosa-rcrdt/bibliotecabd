@@ -18,7 +18,6 @@ $sql = "
         fecha_devolucion,
         estado
     FROM Reportes
-    WHERE estado = 'activo'
 ";
 
 // Preparar la consulta
@@ -45,38 +44,38 @@ $nombre_usuario = $_SESSION['nombre'];  // Primer nombre guardado en la sesión
             background-color: #f8f9fa;
         }
         .navbar {
-            padding-left: 15px;
-            background: linear-gradient(90deg, #dc143c, #b22222); /* Colores escarlata */
+            padding: 10px 15px;
+            background: linear-gradient(90deg, #a80038, #ff1744);
         }
         .navbar-brand, .nav-link {
-            color: #fff !important;
+            color: #ffffff !important;
         }
-        h1 {
-            color: #b22222; /* Título en escarlata */
-            text-align: center;
-            margin-top: 2rem;
-        }
-        .card {
-            margin-bottom: 1.5rem;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        .card-title {
-            color: #dc143c;
+        .navbar-brand {
             font-weight: bold;
-        }
-        .btn-primary {
-            background: linear-gradient(90deg, #dc143c, #b22222);
-            border: none;
-        }
-        .btn-primary:hover {
-            background: linear-gradient(90deg, #b22222, #dc143c);
         }
         .navbar-divider {
             height: 40px;
             width: 2px;
             background-color: rgba(255, 255, 255, 0.7);
-            margin-left: 15px;
-            margin-right: 15px;
+            margin: 0 15px;
+        }
+        h1 {
+            color: #a80038;
+            text-align: center;
+        }
+        .card {
+            margin-bottom: 1.5rem;
+            border: 1px solid #a80038;
+            transition: transform 0.2s ease;
+            cursor: pointer;
+        }
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(168, 0, 56, 0.3);
+        }
+        .card-title {
+            color: #a80038;
+            font-weight: bold;
         }
     </style>
 </head>
@@ -92,10 +91,19 @@ $nombre_usuario = $_SESSION['nombre'];  // Primer nombre guardado en la sesión
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="../index.php">Página Principal</a>
+                        <a class="nav-link" href="mostrar_libros.php">Libros Disponibles</a>
                     </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="index.php">Préstamos Activos</a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="registro_usuarios.php">Registro De Usuarios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="registro_libros.php">Registro De Libros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="añadir_libro.php">Añadir Libro</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html">Cerrar Sesión</a>
                     </li>
                 </ul>
             </div>
@@ -104,7 +112,7 @@ $nombre_usuario = $_SESSION['nombre'];  // Primer nombre guardado en la sesión
 
     <!-- Contenido principal -->
     <div class="container mt-3">
-        <h1>Préstamos Activos</h1>
+        <h1>Registro De Prestamos</h1>
 
         <!-- Sección de los préstamos -->
         <div id="contenedor-prestamos" class="mt-4">

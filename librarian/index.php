@@ -51,7 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $_SESSION['nombre'] = $primer_nombre;
 
      // Redirigir a la página de mostrar libros
-    header("Location: mostrar_prestamos.php");
+    header("Location: mostrar_libros.php");
     exit;
     } else {
         // Si las credenciales no son correctas

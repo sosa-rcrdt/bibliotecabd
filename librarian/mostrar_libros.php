@@ -19,37 +19,42 @@ $nombre_usuario = $_SESSION['nombre'];  // Primer nombre guardado en la sesión
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Biblioteca - Libros Disponibles</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <style>
         body {
             background-color: #f8f9fa;
         }
         .navbar {
-            padding-left: 15px;
-            background: linear-gradient(90deg, #6a11cb, #882beb);
+            padding: 10px 15px;
+            background: linear-gradient(90deg, #a80038, #ff1744);
         }
         .navbar-brand, .nav-link {
-            color: #fff !important;
+            color: #ffffff !important;
         }
-        h1 {
-            color: #343a40;
+        .navbar-brand {
+            font-weight: bold;
         }
         .navbar-divider {
             height: 40px;
             width: 2px;
             background-color: rgba(255, 255, 255, 0.7);
-            margin-left: 15px;
-            margin-right: 15px;
+            margin: 0 15px;
+        }
+        h1 {
+            color: #a80038;
+            text-align: center;
         }
         .card {
-            border: 1px solid #6a11cb;
+            border: 1px solid #a80038;
             transition: transform 0.2s ease;
             cursor: pointer;
         }
         .card:hover {
             transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(168, 0, 56, 0.3);
         }
         .card-title {
-            color: #6a11cb;
+            color: #a80038;
             font-weight: bold;
         }
     </style>
@@ -58,7 +63,7 @@ $nombre_usuario = $_SESSION['nombre'];  // Primer nombre guardado en la sesión
     <!-- Barra de navegación -->
     <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
-            <a class="navbar-brand font-weight-bold">Cliente: <?php echo $nombre_usuario;?></a>
+            <a class="navbar-brand">Cliente: <?php echo $nombre_usuario; ?></a>
             <div class="navbar-divider"></div>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -66,10 +71,19 @@ $nombre_usuario = $_SESSION['nombre'];  // Primer nombre guardado en la sesión
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="ver_prestamos.php">Consultar Préstamos</a>
+                        <a class="nav-link" href="mostrar_prestamos.php">Registro De Prestamos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="libros_mas.php">Libros Más Prestados</a>
+                        <a class="nav-link" href="registro_usuarios.php">Registro De Usuarios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="registro_libros.php">Registro De Libros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="añadir_libro.php">Añadir Libro</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="agregar_prestamo.php">Añadir Prestamo</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="../index.html">Cerrar Sesión</a>
@@ -80,7 +94,7 @@ $nombre_usuario = $_SESSION['nombre'];  // Primer nombre guardado en la sesión
     </nav>
 
     <div class="container mt-4">
-        <h1 class="text-center mb-4">📖 Libros Disponibles</h1>
+        <h1 class="mb-4">📖 Libros Disponibles</h1>
         <!-- Contenedor donde se mostrarán los libros -->
         <div id="contenedor-libros" class="row">
             <!-- Los libros se cargarán aquí por JS -->
@@ -102,7 +116,7 @@ $nombre_usuario = $_SESSION['nombre'];  // Primer nombre guardado en la sesión
                     // Mostrar cada libro en el contenedor
                     libros.forEach(libro => {
                         const divLibro = document.createElement('div');
-                        divLibro.className = 'col-md-4 mb-4'; // Div para la columna con Bootstrap
+                        divLibro.className = 'col-md-4 mb-4';
                         divLibro.innerHTML = `
                             <div class="card libro h-100">
                                 <div class="card-body">
@@ -125,7 +139,6 @@ $nombre_usuario = $_SESSION['nombre'];  // Primer nombre guardado en la sesión
         });
     </script>
 
-    <script src="mostrar_libros.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

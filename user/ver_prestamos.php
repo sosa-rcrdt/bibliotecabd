@@ -12,6 +12,7 @@ $conexion = new Conexion();
 $db = $conexion->getConexion();
 
 // Consulta para obtener los reportes del usuario logueado (usando SELECT TOP)
+// Consulta para obtener los reportes del usuario logueado (usando SELECT TOP)
 $sql = "
     SELECT TOP (1000)
         R.reporte_id,
@@ -22,17 +23,20 @@ $sql = "
         R.fecha_prestamo,
         R.fecha_devolucion,
         R.estado,
-        A.nombre AS autor
+        -- Concatenar autores sin duplicados
+        STUFF((
+            SELECT DISTINCT ', ' + A.nombre
+            FROM Libros_Autores LA
+            JOIN Autores A ON LA.autor_id = A.autor_id
+            WHERE LA.libro_id = L.libro_id
+            FOR XML PATH('')
+        ), 1, 2, '') AS autor
     FROM
         Reportes R
     JOIN
         Usuarios U ON R.usuario_id = U.usuario_id
     JOIN
         Libros L ON R.libro_id = L.libro_id
-    JOIN
-        Libros_Autores LA ON L.libro_id = LA.libro_id
-    JOIN
-        Autores A ON LA.autor_id = A.autor_id
     WHERE
         U.email = :email AND R.estado = 'activo'";
 
@@ -90,7 +94,7 @@ $prestamos = $stmt->fetchAll(PDO::FETCH_ASSOC);
         }
         .navbar {
             padding-left: 15px;
-            background: linear-gradient(90deg, #6a11cb, #2575fc);
+            background: linear-gradient(90deg, #6a11cb, #882beb);
         }
         .navbar-brand, .nav-link {
             color: #fff !important;
@@ -104,6 +108,18 @@ $prestamos = $stmt->fetchAll(PDO::FETCH_ASSOC);
             background-color: rgba(255, 255, 255, 0.7);
             margin-left: 15px;
             margin-right: 15px;
+        }
+        .card {
+            border: 1px solid #6a11cb;
+            transition: transform 0.2s ease;
+            cursor: pointer;
+        }
+        .card:hover {
+            transform: scale(1.05);
+        }
+        .card-title {
+            color: #6a11cb;
+            font-weight: bold;
         }
     </style>
 </head>
@@ -120,6 +136,9 @@ $prestamos = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <ul class="navbar-nav">
                     <li class="nav-item">
                         <a class="nav-link" href="mostrar_libros.php">Mostrar Libros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="libros_mas.php">Libros Más Prestados</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="../index.html">Cerrar Sesión</a>
