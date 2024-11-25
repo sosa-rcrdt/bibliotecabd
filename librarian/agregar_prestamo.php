@@ -115,8 +115,8 @@ $nombre_usuario = $_SESSION['nombre'];  // Primer nombre guardado en la sesión
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="mostrar_prestamos.php">Registro De Prestamos</a>
+            <li class="nav-item">
+                    <a class="nav-link" href="mostrar_libros.php">Libros Disponibles</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="registro_usuarios.php">Registro De Usuarios</a>
@@ -128,7 +128,7 @@ $nombre_usuario = $_SESSION['nombre'];  // Primer nombre guardado en la sesión
                     <a class="nav-link" href="añadir_libro.php">Añadir Libro</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="agregar_prestamo.php">Añadir Prestamo</a>
+                        <a class="nav-link" href="cambiar_estado.php">Registro De Prestamos</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="../index.html">Cerrar Sesión</a>

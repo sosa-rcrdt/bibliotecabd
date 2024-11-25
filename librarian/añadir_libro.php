@@ -105,9 +105,6 @@ if (isset($_SESSION['success_message'])) {
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="mostrar_prestamos.php">Registro De Prestamos</a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link" href="mostrar_libros.php">Libros Disponibles</a>
                 </li>
                 <li class="nav-item">
@@ -115,6 +112,12 @@ if (isset($_SESSION['success_message'])) {
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="registro_libros.php">Registro De Libros</a>
+                </li>
+                <li class="nav-item">
+                        <a class="nav-link" href="agregar_prestamo.php">Añadir Prestamo</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="cambiar_estado.php">Registro De Prestamos</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="../index.html">Cerrar Sesión</a>

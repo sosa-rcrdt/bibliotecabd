@@ -112,9 +112,6 @@ $usuarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="mostrar_prestamos.php">Registro De Prestamos</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="mostrar_libros.php">Libros Disponibles</a>
                     </li>
                     <li class="nav-item">
@@ -122,6 +119,12 @@ $usuarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="añadir_libro.php">Añadir Libro</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="agregar_prestamo.php">Añadir Prestamo</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="cambiar_estado.php">Registro De Prestamos</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="../index.html">Cerrar Sesión</a>

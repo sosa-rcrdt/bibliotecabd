@@ -103,6 +103,9 @@ $nombre_usuario = $_SESSION['nombre'];  // Primer nombre guardado en la sesión
                         <a class="nav-link" href="añadir_libro.php">Añadir Libro</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="agregar_prestamo.php">Añadir Prestamo</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="../index.html">Cerrar Sesión</a>
                     </li>
                 </ul>
