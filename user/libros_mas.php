@@ -110,7 +110,7 @@ $libros = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         <a class="nav-link" href="ver_prestamos.php">Consultar Préstamos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="mostrar_libros.php">Mostrar Libros</a>
+                        <a class="nav-link" href="mostrar_libros.php">Libros En Existencia</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="../index.html">Cerrar Sesión</a>

@@ -51,9 +51,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         echo "<div style='text-align:center; margin-top:20%; font-family:Arial; color:red;'>
             <h1>Acceso Denegado</h1>
             <p>Los datos ingresados no coinciden con los registros. Verifique que su correo electrónico y contraseña sean correctos.</p>
-            <form action='index.html'>
+            <form action='index.php'>
                 <button type='submit' style='
-                    background-color: #007bff;
+                    background-color: red;
                     color: white;
                     font-size: 16px;
                     padding: 12px 20px;

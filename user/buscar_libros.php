@@ -33,8 +33,6 @@ SELECT
 
 FROM
     Libros L
-WHERE
-    L.disponible = 1  -- Solo mostrar los libros disponibles
 ";
 
 // Ejecutar la consulta

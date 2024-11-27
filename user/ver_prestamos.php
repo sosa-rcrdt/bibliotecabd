@@ -135,7 +135,7 @@ $prestamos = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="mostrar_libros.php">Mostrar Libros</a>
+                        <a class="nav-link" href="mostrar_libros.php">Libros En Existencia</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="libros_mas.php">Libros Más Prestados</a>

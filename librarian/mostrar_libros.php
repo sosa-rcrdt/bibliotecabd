@@ -94,7 +94,7 @@ $nombre_usuario = $_SESSION['nombre'];  // Primer nombre guardado en la sesión
     </nav>
 
     <div class="container mt-4">
-        <h1 class="mb-4">📖 Libros Disponibles</h1>
+        <h1 class="mb-4">Libros En Existencia</h1>
         <!-- Contenedor donde se mostrarán los libros -->
         <div id="contenedor-libros" class="row">
             <!-- Los libros se cargarán aquí por JS -->
@@ -126,7 +126,7 @@ $nombre_usuario = $_SESSION['nombre'];  // Primer nombre guardado en la sesión
                                         <strong>Autor:</strong> ${libro.autores}<br>
                                         <strong>Géneros:</strong> ${libro.generos}<br>
                                         <strong>Fecha de Publicación:</strong> ${new Date(libro.fecha_publicacion).toLocaleDateString()}<br>
-                                        <strong>Unidades Disponibles:</strong> ${libro.unidades}
+                                        ${libro.unidades == 0 ? "<strong>No hay unidades disponibles</strong>" : `<strong>Unidades Disponibles:</strong> ${libro.unidades}`}
                                     </p>
                                 </div>
                             </div>

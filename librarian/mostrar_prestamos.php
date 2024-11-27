@@ -91,7 +91,7 @@ $nombre_usuario = $_SESSION['nombre'];  // Primer nombre guardado en la sesión
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="mostrar_libros.php">Libros Disponibles</a>
+                        <a class="nav-link" href="mostrar_libros.php">Libros En Existencia</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="registro_usuarios.php">Registro De Usuarios</a>

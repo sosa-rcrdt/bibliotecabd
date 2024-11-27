@@ -25,7 +25,6 @@ $libros = $stmt_libros->fetchAll(PDO::FETCH_ASSOC);
 // Verificar si el formulario ha sido enviado
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Verificar los datos enviados
-    var_dump($_POST); // Para ver los datos del formulario
     // Obtener los datos del formulario
     $usuario_id = $_POST['usuario_id'];
     $libro_id = $_POST['libro_id'];
@@ -41,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $fecha_devolucion = date('Y-m-d', strtotime($fecha_devolucion));
 
         // Registrar el préstamo en la base de datos
-        $insert_query = "INSERT INTO Prestamos (usuario_id, libro_id, fecha_prestamo, fecha_devolucion, estado) VALUES (?, ?, ?, '2024-11-23', 'Activo')";
+        $insert_query = "INSERT INTO Prestamos (usuario_id, libro_id, fecha_prestamo, fecha_devolucion, estado) VALUES (?, ?, ?, ?, 'Activo')";
         $stmt_insert = $db->prepare($insert_query);
 
         if ($stmt_insert->execute([$usuario_id, $libro_id, $fecha_prestamo, $fecha_devolucion])) {
@@ -116,7 +115,7 @@ $nombre_usuario = $_SESSION['nombre'];  // Primer nombre guardado en la sesión
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
             <li class="nav-item">
-                    <a class="nav-link" href="mostrar_libros.php">Libros Disponibles</a>
+                    <a class="nav-link" href="mostrar_libros.php">Libros En Existencia</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="registro_usuarios.php">Registro De Usuarios</a>

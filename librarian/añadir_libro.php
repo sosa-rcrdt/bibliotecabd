@@ -1,43 +1,34 @@
 <?php
 session_start();
-
 // Verificar si el usuario está logueado
 if (!isset($_SESSION['email'])) {
     header("Location: index.html");
     exit;
 }
-
 // Obtener los datos del usuario desde la sesión
 $nombre_usuario = $_SESSION['nombre'];
-
 // Incluir la conexión
 require '../conexion.php';
-
 // Crear instancia de la clase Conexion
 $conexion = new Conexion();
 $db = $conexion->getConexion();
-
 // Obtener la lista de autores
 $autores_query = "SELECT autor_id, nombre FROM Autores";
 $stmt_autores = $db->query($autores_query);
 $autores = $stmt_autores->fetchAll(PDO::FETCH_ASSOC);
-
 // Obtener la lista de géneros
 $generos_query = "SELECT genero_id, nombre_genero FROM Generos";
 $stmt_generos = $db->query($generos_query);
 $generos = $stmt_generos->fetchAll(PDO::FETCH_ASSOC);
-
 // Verificar si hay un mensaje de éxito y mostrarlo
 if (isset($_SESSION['success_message'])) {
     echo '<div class="alert alert-success" role="alert">';
     echo $_SESSION['success_message'];
     echo '</div>';
-
     // Limpiar la variable de sesión para que el mensaje no se repita
     unset($_SESSION['success_message']);
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -82,13 +73,11 @@ if (isset($_SESSION['success_message'])) {
             background-color: #ff1744;
             border-color: #ff1744;
         }
-
         /* Estilos para cambiar solo las letras y símbolos a escarlata */
         .btn-escarlata {
             color: #a80038; /* Color escarlata para el texto y el icono */
             border-color: transparent; /* Mantener el borde transparente */
         }
-
         .btn-escarlata:hover {
             color: #ff1744; /* Rojo más intenso al pasar el mouse */
         }
@@ -105,6 +94,9 @@ if (isset($_SESSION['success_message'])) {
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
+                    <a class="nav-link" href="mostrar_prestamos.php">Registro De Prestamos</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="mostrar_libros.php">Libros Disponibles</a>
                 </li>
                 <li class="nav-item">
@@ -114,19 +106,12 @@ if (isset($_SESSION['success_message'])) {
                     <a class="nav-link" href="registro_libros.php">Registro De Libros</a>
                 </li>
                 <li class="nav-item">
-                        <a class="nav-link" href="agregar_prestamo.php">Añadir Prestamo</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="cambiar_estado.php">Registro De Prestamos</a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link" href="../index.html">Cerrar Sesión</a>
                 </li>
             </ul>
         </div>
     </div>
 </nav>
-
 <div class="container mt-4">
     <h1 class="mb-4">Añadir Nuevo Libro</h1>
     <form action="guardar_libro.php" method="POST">
@@ -172,7 +157,6 @@ if (isset($_SESSION['success_message'])) {
         </div>
         <button type="submit" class="btn btn-primary">Guardar Libro</button>
     </form>
-
     <!-- Modal para añadir nuevos autores -->
     <div class="modal fade" id="modalAutor" tabindex="-1" aria-labelledby="modalAutorLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -204,7 +188,6 @@ if (isset($_SESSION['success_message'])) {
             </div>
         </div>
     </div>
-
     <!-- Modal para añadir nuevos géneros -->
     <div class="modal fade" id="modalGenero" tabindex="-1" aria-labelledby="modalGeneroLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -213,11 +196,11 @@ if (isset($_SESSION['success_message'])) {
                     <h5 class="modal-title" id="modalGeneroLabel">Añadir Nuevo Género</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form action="guardar_genero.php" method="POST">
+                <form action="agregar_genero.php" method="POST">
                     <div class="modal-body">
                         <div class="mb-3">
-                            <label for="nombre_genero" class="form-label">Nombre del Género</label>
-                            <input type="text" class="form-control" id="nombre_genero" name="nombre_genero" required>
+                            <label for="nombreGenero" class="form-label">Nombre del Género</label>
+                            <input type="text" class="form-control" id="nombreGenero" name="nombreGenero" required>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -229,7 +212,6 @@ if (isset($_SESSION['success_message'])) {
         </div>
     </div>
 </div>
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

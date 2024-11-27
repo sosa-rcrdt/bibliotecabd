@@ -46,7 +46,7 @@ try {
 
     if ($stmt->execute()) {
         // Redirigir automáticamente al login si el registro es exitoso
-        header("Location: buscar_prestamos.html");
+        header("Location: index.html");
         exit;
     } else {
         echo "

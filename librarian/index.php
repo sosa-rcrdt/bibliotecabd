@@ -152,7 +152,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
 
     <!-- Flecha de Regresar -->
-    <a href="javascript:history.back()" class="back-button">
+    <a href="../index.html" class="back-button">
         <i class="fas fa-arrow-left"></i>
     </a>
 
